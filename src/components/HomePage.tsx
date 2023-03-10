@@ -270,7 +270,7 @@ export default function HomePage() {
     
     async function fetchFollowers() {
         setTimeout(async () => {
-            const res = await axios.get(`https://avl-frontend-exam.herokuapp.com/api/users/all?page=${page}&pageSize=10`);
+            const res = await axios.get(`https://avl-frontend-exam.herokuapp.com/api/users/all?page=${page}&pageSize=20`);
             setTotalPage(res.data.totalPages);
             for (const item of res.data.data) {
               setFollowers((prevState: PersonType[]) => [...prevState, item]);
@@ -281,7 +281,7 @@ export default function HomePage() {
 
     async function fetchFollowing() {
         setTimeout(async () => {
-            const res = await axios.get(`https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=10`);
+            const res = await axios.get(`https://avl-frontend-exam.herokuapp.com/api/users/friends?page=1&pageSize=20`);
             for (const item of res.data.data) {
                 setFollowing((prevState: PersonType[]) => [...prevState, item]);
             }
